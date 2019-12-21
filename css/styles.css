@@ -1,0 +1,24 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+.calculator {
+  --width: 400px;
+  height: 300px;
+  width: var(--width);
+  margin: 0 auto;
+  background-color: black;
+}
+
+.row {
+  display: flex;
+}
