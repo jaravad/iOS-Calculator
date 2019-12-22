@@ -31,11 +31,20 @@ button:active {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 
+button:focus {
+  outline: none;
+}
+
+/* removes the focus outline on firefox */
+button::-moz-focus-inner {
+  border: 0;
+}
+
 .calculator {
   --width: 375px;
   height: 100vh;
   padding: calc(var(--width) * 0.04);
-  max-width: var(--width);
+  width: var(--width);
   margin: 0 auto;
   background-color: black;
 }
@@ -76,6 +85,21 @@ button:active {
 .two-col-btn {
   border-radius: 35px;
   flex-basis: calc(var(--width) * 0.4);
+}
+
+@media (max-width: 600px) {
+  .calculator {
+    width: 100vw;
+  }
+
+  button {
+    flex-basis: 20%;
+    height: calc(100vw * 0.2);
+  }
+
+  .two-col-btn {
+    flex-basis: 40vw;
+  }
 }
 
 /* #333 */
