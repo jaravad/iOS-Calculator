@@ -1,6 +1,8 @@
 html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
+
 *,
 *:before,
 *:after {
@@ -9,16 +11,71 @@ html {
 
 body {
   margin: 0;
+  font-family: "Rubik", sans-serif;
+}
+
+button {
+  border: none;
+  padding: 0;
+  border-radius: 50%;
+  flex-basis: calc(var(--width) * 0.2);
+  height: calc(var(--width) * 0.2);
+  font-family: inherit;
+  font-size: 3rem;
+  font-weight: 400;
+  background-color: #333;
+  color: white;
+}
+
+button:active {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 
 .calculator {
-  --width: 400px;
-  height: 300px;
-  width: var(--width);
+  --width: 375px;
+  height: 100vh;
+  padding: calc(var(--width) * 0.04);
+  max-width: var(--width);
   margin: 0 auto;
   background-color: black;
 }
 
-.row {
-  display: flex;
+.display {
+  margin-top: 10%;
+  height: 15%;
+  width: 100%;
+  color: white;
+  padding-right: 4%;
+  text-align: right;
+  font-size: 8rem;
+  font-weight: 300;
 }
+
+.buttons {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.grey-btn {
+  background-color: #a5a5a6;
+  color: black;
+}
+
+.orange-btn {
+  background-color: #ff9e0c;
+}
+
+.two-col-btn {
+  border-radius: 35px;
+  flex-basis: calc(var(--width) * 0.4);
+}
+
+/* #333 */
