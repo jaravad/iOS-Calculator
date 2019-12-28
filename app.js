@@ -1,6 +1,8 @@
 const buttonsContainer = document.querySelector(".buttons");
 const disp = document.querySelector(".display");
 let operation = "";
+let sw = false; // switch to know if an operation is active or not
+
 function howManyDots(str) {
   if (str.length % 3 === 0) {
     return parseInt(str.length / 3 - 1);
@@ -10,6 +12,7 @@ function howManyDots(str) {
 }
 
 buttonsContainer.addEventListener("click", function(event) {
+  // checking if a button was clicked inside the container
   if (event.target.tagName === "BUTTON") {
     if (
       !isNaN(event.target.innerText) ||
@@ -18,11 +21,18 @@ buttonsContainer.addEventListener("click", function(event) {
       if (disp.innerText === "0") {
         disp.innerText = event.target.innerText;
       } else {
-        disp.innerText += event.target.innerText;
+        if (sw === true) {
+          disp.innerText = "";
+          disp.innerText += event.target.innerText;
+          sw = false;
+        } else {
+          disp.innerText += event.target.innerText;
+        }
       }
     } else if (event.target.innerText === "AC") {
       disp.innerText = "0";
       operation = "";
+      sw = false;
     } else if (event.target.innerText === "+/-" && disp.innerText !== "0") {
       if (!disp.innerText.includes("-")) {
         disp.innerText = "-" + disp.innerText;
@@ -30,18 +40,39 @@ buttonsContainer.addEventListener("click", function(event) {
         disp.innerText = disp.innerText.replace("-", "");
       }
     } else if (
+      // add and substract
       event.target.innerText === "+" ||
       event.target.innerText === "-"
     ) {
-      operation += disp.innerText + event.target.innerText;
-      disp.innerText = "0";
+      if (sw !== true) {
+        operation += disp.innerText + event.target.innerText;
+        sw = true;
+        disp.innerText = eval(operation.substring(0, operation.length - 1));
+      } else {
+        operation = operation.replace(/.$/, event.target.innerText);
+      }
+      console.log(operation);
     } else if (event.target.innerText === "x") {
-      operation += disp.innerText + "*";
-      disp.innerText = "0";
+      // multiplication
+      if (sw !== true) {
+        operation += disp.innerText + "*";
+        sw = true;
+        disp.innerText = eval(operation.substring(0, operation.length - 1));
+      } else {
+        operation = operation.replace(/.$/, "*");
+      }
+      console.log(operation);
     } else if (event.target.innerText === "÷") {
-      operation += disp.innerText + "/";
-      disp.innerText = "0";
+      // division
+      if (sw !== true) {
+        operation += disp.innerText + "/";
+        sw = true;
+        disp.innerText = eval(operation.substring(0, operation.length - 1));
+      } else {
+        operation = operation.replace(/.$/, "/");
+      }
     } else if (event.target.innerText === "=") {
+      // equal button
       operation += disp.innerText;
       disp.innerText = eval(operation);
       operation = "";
