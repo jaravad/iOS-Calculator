@@ -16,7 +16,7 @@ buttonsContainer.addEventListener("click", function(event) {
   if (event.target.tagName === "BUTTON") {
     if (
       !isNaN(event.target.innerText) ||
-      (event.target.innerText === "," && !disp.innerText.includes(","))
+      (event.target.innerText === "." && !disp.innerText.includes("."))
     ) {
       if (disp.innerText === "0") {
         disp.innerText = event.target.innerText;

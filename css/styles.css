@@ -12,6 +12,11 @@ html {
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
+  height: 100vh;
+  background-color: rgb(174, 174, 178);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -23,12 +28,15 @@ button {
   font-family: inherit;
   font-size: 3rem;
   font-weight: 400;
-  background-color: #333;
+  background-color: #333333;
   color: white;
 }
 
 button:active {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4)
+  );
 }
 
 button:focus {
@@ -42,10 +50,10 @@ button::-moz-focus-inner {
 
 .calculator {
   --width: 375px;
+  border-radius: 15px;
   height: auto;
   padding: calc(var(--width) * 0.04);
   width: var(--width);
-  margin: 0 auto;
   background-color: black;
 }
 
