@@ -12,11 +12,19 @@ html {
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
   display: flex;
-  justify-content: center;
+  color: white;
+  justify-content: space-around;
   align-items: center;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 7em;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 button {
@@ -133,6 +141,16 @@ button::-moz-focus-inner {
 
   .two-col-btn {
     flex-basis: 40vw;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 4em;
   }
 }
 
