@@ -20,11 +20,18 @@ body {
   align-items: center;
 }
 
-h1 {
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title h1 {
   font-weight: 300;
   font-size: 7em;
   text-align: center;
-  margin-bottom: 0;
+  margin: 0;
+  display: inline-block;
 }
 
 button {
@@ -149,8 +156,15 @@ button::-moz-focus-inner {
     flex-direction: column;
   }
 
-  h1 {
-    font-size: 4em;
+  .title {
+    display: flex;
+    flex-direction: row;
+    font-size: 6px;
+    margin: 3rem 0;
+  }
+  .title h1 {
+    margin-left: 4%;
+    margin-right: 4%;
   }
 }
 
