@@ -1,4 +1,5 @@
 const buttonsContainer = document.querySelector(".buttons");
+const opDisp = document.querySelector(".op-display");
 const disp = document.querySelector(".display");
 let operation = "";
 let sw = false; // switch to know if an operation is active or not
@@ -11,7 +12,7 @@ function howManyDots(str) {
   }
 }
 
-buttonsContainer.addEventListener("click", function(event) {
+buttonsContainer.addEventListener("click", function (event) {
   // checking if a button was clicked inside the container
   if (event.target.tagName === "BUTTON") {
     if (
@@ -32,6 +33,7 @@ buttonsContainer.addEventListener("click", function(event) {
     } else if (event.target.innerText === "AC") {
       disp.innerText = "0";
       operation = "";
+      opDisp.innerText = "";
       sw = false;
     } else if (event.target.innerText === "+/-" && disp.innerText !== "0") {
       if (!disp.innerText.includes("-")) {
@@ -46,6 +48,7 @@ buttonsContainer.addEventListener("click", function(event) {
     ) {
       if (sw !== true) {
         operation += disp.innerText + event.target.innerText;
+        opDisp.innerText = operation;
         sw = true;
         disp.innerText = eval(operation.substring(0, operation.length - 1));
       } else {
@@ -56,6 +59,7 @@ buttonsContainer.addEventListener("click", function(event) {
       // multiplication
       if (sw !== true) {
         operation += disp.innerText + "*";
+        opDisp.innerText = operation;
         sw = true;
         disp.innerText = eval(operation.substring(0, operation.length - 1));
       } else {
@@ -66,6 +70,7 @@ buttonsContainer.addEventListener("click", function(event) {
       // division
       if (sw !== true) {
         operation += disp.innerText + "/";
+        opDisp.innerText = operation;
         sw = true;
         disp.innerText = eval(operation.substring(0, operation.length - 1));
       } else {
@@ -75,8 +80,11 @@ buttonsContainer.addEventListener("click", function(event) {
       // equal button
       operation += disp.innerText;
       disp.innerText = eval(operation);
+      opDisp.innerText = operation;
       operation = "";
       console.log(howManyDots(disp.innerText));
+    } else if (event.target.innerText === "%") {
+      disp.innerText = disp.innerText / 100;
     }
   }
 });

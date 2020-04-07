@@ -13,7 +13,7 @@ body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  background-color: rgb(174, 174, 178);
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,17 +58,22 @@ button::-moz-focus-inner {
 }
 
 .top {
-  margin-top: 15%;
-  height: 100px;
-  display: flex;
-  align-items: flex-start;
+  color: white;
+  padding-right: 8%;
+  text-align: right;
+}
+
+.op-display {
+  font-weight: 300;
+  font-size: 2em;
+  overflow: auto;
+  width: 100%;
+  align-items: center;
+  height: 50px;
 }
 
 .display {
-  height: auto;
   width: 100%;
-  color: white;
-  padding-right: 8%;
   text-align: right;
   font-size: 6rem;
   font-weight: 300;
