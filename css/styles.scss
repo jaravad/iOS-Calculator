@@ -1,4 +1,7 @@
 $width: 375px;
+$primary-color: #333333;
+$main-accent: #ff9e0c;
+$second-accent: #a5a5a6;
 
 html {
   box-sizing: border-box;
@@ -32,8 +35,8 @@ body {
   animation-fill-mode: forwards;
 
   h1 {
-    font-weight: 300;
-    font-size: 7em;
+    font-weight: 100;
+    font-size: 9em;
     text-align: center;
     margin: 0;
     display: inline-block;
@@ -49,14 +52,12 @@ button {
   font-family: inherit;
   font-size: 3rem;
   font-weight: 400;
-  background-color: #333333;
+  background-color: $primary-color;
   color: white;
+  transition: background-color 0.1s linear;
 
   &:active {
-    background-image: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    );
+    background-color: lighten($primary-color, 40%);
   }
 
   &:focus {
@@ -81,6 +82,7 @@ button {
 .top {
   color: white;
   padding-right: 8%;
+  height: 140px;
   text-align: right;
 }
 
@@ -106,12 +108,12 @@ button {
   }
 
   &::-webkit-scrollbar {
-    height: 10px;
+    height: 8px;
     background-color: #000000;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #a5a5a6;
+    background-color: $second-accent;
   }
 }
 
@@ -129,12 +131,20 @@ button {
 }
 
 .grey-btn {
-  background-color: #a5a5a6;
+  background-color: $second-accent;
   color: black;
+
+  &:active {
+    background-color: lighten($second-accent, 40%);
+  }
 }
 
 .orange-btn {
-  background-color: #ff9e0c;
+  background-color: $main-accent;
+
+  &:active {
+    background-color: lighten($main-accent, 40%);
+  }
 }
 
 .two-col-btn {
@@ -167,7 +177,7 @@ button {
   }
 
   .two-col-btn {
-    flex-basis: 40vw;
+    flex-basis: 42.5vw;
   }
 }
 
@@ -182,8 +192,8 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: 5px;
-    margin: 5rem 0 3rem;
+    font-size: 0.6em;
+    margin: 5rem 0 1rem;
 
     h1 {
       margin-left: 1%;
